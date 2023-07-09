@@ -4,6 +4,41 @@ main{
     background-color: #1e1f29;
     flex-direction: column;
 
+    #title{
+        color: white;
+    }
+
+    #counter{
+        margin: auto;
+        color: white;
+        display: flex;
+        flex-wrap: wrap;
+
+        .timer{
+            margin: 0.5rem;
+            text-align: center;
+
+            .flip-card{
+                background-color: hsl(236, 21%, 26%);
+                color: hsl(345, 95%, 68%);
+                font-size: 3rem;
+                height: 4.5rem;
+                width: 4.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 0.5rem;
+            }
+            
+            p{
+                color: hsl(237, 18%, 59%);
+                font-size: 0.6rem;
+                padding-top: 0.5rem;
+            }
+        }
+       
+    }
+
     footer{
         display: flex;
         justify-content: center;
