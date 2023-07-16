@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import moment from 'moment';
 
 @Component({
   selector: 'app-root',
@@ -11,22 +13,35 @@ export class AppComponent {
   minutes = '00'
   seconds = '00'
 
-  date = new Date(0,0,0,0,0)
+  dateTo:any
 
-  ngOnInit(){
-    
-    setInterval(()=>{
-      this.date.setSeconds(this.date.getSeconds() +1)
+  constructor(private activatedRoute: ActivatedRoute){
+    this.activatedRoute.queryParams.subscribe(params=>{
+      
+      if(params['dateTo']){
+        let dateTo = params['dateTo'].split('T')
+
+        let date = dateTo[0]
+        let hour = dateTo[1]
+  
+        this.dateTo = moment(date + ' ' + hour)
+      }else{
+        this.dateTo = moment().add(2, 'days')
+      }
       this.setTimer()
-    },1000)
-    
+        setInterval(()=>{
+          this.setTimer()
+        },1000)
+    })
   }
 
   setTimer(){
-    this.days = this.numberWithZero(this.date.getDay())
-    this.hours = this.numberWithZero(this.date.getHours())
-    this.minutes = this.numberWithZero(this.date.getMinutes())
-    this.seconds = this.numberWithZero(this.date.getSeconds())
+    let now = moment()
+
+    this.days = this.numberWithZero(this.dateTo.diff(now, 'days'))
+    this.hours = this.numberWithZero(this.dateTo.diff(now.add(this.days, 'day'), 'hours'))
+    this.minutes = this.numberWithZero(this.dateTo.diff(now.add(this.hours, 'hours'), 'minutes'))
+    this.seconds = this.numberWithZero(this.dateTo.diff(now.add(this.minutes, 'minutes'), 'seconds'))
   }
 
   numberWithZero(number:number):string{
