@@ -3,13 +3,16 @@ main{
     display: flex;
     background-color: #1e1f29;
     flex-direction: column;
+    align-items: center;
 
     #title{
         color: white;
+        padding: 1rem;
+        font-size: 1.5rem;
+        margin-top: auto;
     }
 
     #counter{
-        margin: auto;
         color: white;
         display: flex;
         flex-wrap: wrap;
@@ -21,9 +24,9 @@ main{
             .flip-card{
                 background-color: hsl(236, 21%, 26%);
                 color: hsl(345, 95%, 68%);
-                font-size: 3rem;
-                height: 4.5rem;
-                width: 4.5rem;
+                font-size: 6rem;
+                height: 8rem;
+                width: 8rem;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -40,6 +43,7 @@ main{
     }
 
     footer{
+        width: 100%;
         display: flex;
         justify-content: center;
         margin-top: auto;
