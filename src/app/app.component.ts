@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import moment from 'moment';
+import particlesjsConfig from '../assets/particlesjs-config.json'; 
+
+declare var particlesJS: any;
+
 
 @Component({
   selector: 'app-root',
@@ -33,6 +37,10 @@ export class AppComponent {
           this.setTimer()
         },1000)
     })
+  }
+
+  ngOnInit(){
+    particlesJS('particles-js', particlesjsConfig, function() {});
   }
 
   setTimer(){

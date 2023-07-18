@@ -5,17 +5,28 @@ main{
     flex-direction: column;
     align-items: center;
 
+    #particles-js{
+        position: fixed;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
     #title{
         color: white;
         padding: 1rem;
         font-size: 1.5rem;
         margin-top: auto;
+        z-index: 1;
     }
 
     #counter{
         color: white;
         display: flex;
         flex-wrap: wrap;
+        z-index: 1;
 
         .timer{
             margin: 0.5rem;
@@ -51,6 +62,7 @@ main{
         background-size: 100% 100%;
         padding-top: 6rem;
         padding-bottom: 2rem;
+        z-index: 1;
         
         img{
             margin: 0.8rem;
